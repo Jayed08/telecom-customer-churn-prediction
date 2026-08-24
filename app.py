@@ -22,13 +22,11 @@ st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-    /* Global Font & Background */
-    html, body, [class*="css"], [class*="st-"], .stApp {
-        font-family: 'IBM Plex Sans', sans-serif !important;
-    }
-
-    .stApp {
+    /* Base Typography & Background */
+    html, body, .stApp {
+        font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
         background-color: #111827 !important;
         color: #E5E7EB !important;
     }
@@ -37,71 +35,26 @@ st.markdown(
         background-color: #111827 !important;
     }
 
-    /* Sidebar */
-    section[data-testid="stSidebar"],
-    section[data-testid="stSidebar"] > div,
-    div[data-testid="stSidebarContent"],
-    div[data-testid="stSidebarUserContent"],
-    header[data-testid="stSidebarHeader"] {
-        background-color: #0F172A !important;
-        color: #E5E7EB !important;
-    }
-
-    section[data-testid="stSidebar"] {
-        border-right: 1px solid #2A3445 !important;
-    }
-
-    /* Sidebar Metrics */
-    section[data-testid="stSidebar"] div[data-testid="stMetric"] {
-        background-color: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        padding: 4px 0 !important;
-        box-shadow: none !important;
-    }
-
-    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] p,
-    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] label,
-    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] span {
-        color: #94A3B8 !important;
-        font-size: 14px !important;
-        font-weight: 500 !important;
-    }
-
-    section[data-testid="stSidebar"] [data-testid="stMetricValue"] div,
-    section[data-testid="stSidebar"] [data-testid="stMetricValue"] span,
-    section[data-testid="stSidebar"] [data-testid="stMetricValue"] {
-        color: #E5E7EB !important;
-        font-weight: 600 !important;
-    }
-
-    /* Highlight Loaded Model in Sidebar */
-    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div[data-testid="element-container"]:nth-of-type(2) [data-testid="stMetricValue"] div,
-    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:nth-child(2) [data-testid="stMetricValue"] div {
-        color: #2DD4BF !important;
-    }
-
-    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"],
-    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
-        color: #94A3B8 !important;
-    }
-
-    section[data-testid="stSidebar"] h1,
-    section[data-testid="stSidebar"] h2,
-    section[data-testid="stSidebar"] h3 {
-        color: #E5E7EB !important;
-        font-weight: 600 !important;
-    }
-
-    /* Sidebar buttons & collapse toggle */
-    section[data-testid="stSidebar"] button,
-    [data-testid="stSidebarCollapseButton"] button {
-        color: #94A3B8 !important;
-    }
-
-    section[data-testid="stSidebar"] svg,
-    [data-testid="stSidebarCollapseButton"] svg {
-        fill: #94A3B8 !important;
+    /* Preserve Material Symbols & Icons (Prevent rendering as raw ligature text) */
+    .material-symbols-rounded,
+    .material-symbols-outlined,
+    .material-icons,
+    [data-testid*="Icon"],
+    [data-testid*="icon"],
+    [class*="material-symbols"],
+    [class*="stIcon"],
+    span[data-testid="stIconMaterial"],
+    button span.material-symbols-rounded,
+    button span.material-symbols-outlined {
+        font-family: 'Material Symbols Rounded', 'Material Icons', sans-serif !important;
+        font-weight: normal !important;
+        font-style: normal !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        word-wrap: normal !important;
+        white-space: nowrap !important;
+        direction: ltr !important;
+        -webkit-font-smoothing: antialiased !important;
     }
 
     /* Headings */
@@ -126,19 +79,71 @@ st.markdown(
         color: #E5E7EB !important;
     }
 
-    p, span, label, div {
-        font-family: 'IBM Plex Sans', sans-serif;
-    }
-
-    /* Body and Secondary Text */
-    .stMarkdown p, .stText {
+    .stMarkdown p, .stText, p {
+        font-family: 'IBM Plex Sans', sans-serif !important;
         color: #E5E7EB;
         font-weight: 400;
     }
 
     [data-testid="stCaptionContainer"], .stCaption {
+        font-family: 'IBM Plex Sans', sans-serif !important;
         color: #94A3B8 !important;
         font-weight: 400 !important;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div,
+    div[data-testid="stSidebarContent"],
+    div[data-testid="stSidebarUserContent"],
+    header[data-testid="stSidebarHeader"] {
+        background-color: #0F172A !important;
+        color: #E5E7EB !important;
+    }
+
+    section[data-testid="stSidebar"] {
+        border-right: 1px solid #2A3445 !important;
+    }
+
+    section[data-testid="stSidebar"] div[data-testid="stMetric"] {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 4px 0 !important;
+        box-shadow: none !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] p,
+    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] label {
+        color: #94A3B8 !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stMetricValue"] div,
+    section[data-testid="stSidebar"] [data-testid="stMetricValue"] {
+        color: #E5E7EB !important;
+        font-weight: 600 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
+    }
+
+    /* Highlight Loaded Model in Sidebar */
+    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div[data-testid="element-container"]:nth-of-type(2) [data-testid="stMetricValue"] div,
+    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:nth-child(2) [data-testid="stMetricValue"] div {
+        color: #2DD4BF !important;
+    }
+
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3 {
+        color: #E5E7EB !important;
+        font-weight: 600 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+        color: #94A3B8 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     /* Form Container / Cards */
@@ -155,6 +160,7 @@ st.markdown(
         color: #94A3B8 !important;
         font-weight: 500 !important;
         font-size: 14px !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     /* Selectboxes & Inputs */
@@ -165,6 +171,7 @@ st.markdown(
         border: 1px solid #334155 !important;
         border-radius: 6px !important;
         color: #E5E7EB !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     div[data-baseweb="select"]:focus-within > div,
@@ -184,6 +191,7 @@ st.markdown(
     [data-baseweb="menu"] li {
         color: #E5E7EB !important;
         background-color: #1B2433 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     [data-baseweb="menu"] li:hover,
@@ -213,6 +221,7 @@ st.markdown(
         border: none !important;
         border-radius: 6px !important;
         font-weight: 600 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     button[kind="primary"]:hover,
@@ -242,12 +251,14 @@ st.markdown(
         color: #94A3B8 !important;
         font-size: 14px !important;
         font-weight: 500 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     [data-testid="stMetricValue"] div,
     [data-testid="stMetricValue"] {
         color: #E5E7EB !important;
         font-weight: 600 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     /* Progress Bar */
@@ -266,6 +277,7 @@ st.markdown(
 
     div[data-testid="stAlert"] p {
         color: #E5E7EB !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
     div.stAlert:has(div[data-testid="stNotificationErrorIcon"]),
