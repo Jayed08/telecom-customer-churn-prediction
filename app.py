@@ -18,6 +18,306 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+    /* Global Font & Background */
+    html, body, [class*="css"], [class*="st-"], .stApp {
+        font-family: 'IBM Plex Sans', sans-serif !important;
+    }
+
+    .stApp {
+        background-color: #111827 !important;
+        color: #E5E7EB !important;
+    }
+
+    header[data-testid="stHeader"] {
+        background-color: #111827 !important;
+    }
+
+    /* Sidebar */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div,
+    div[data-testid="stSidebarContent"],
+    div[data-testid="stSidebarUserContent"],
+    header[data-testid="stSidebarHeader"] {
+        background-color: #0F172A !important;
+        color: #E5E7EB !important;
+    }
+
+    section[data-testid="stSidebar"] {
+        border-right: 1px solid #2A3445 !important;
+    }
+
+    /* Sidebar Metrics */
+    section[data-testid="stSidebar"] div[data-testid="stMetric"] {
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 4px 0 !important;
+        box-shadow: none !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] p,
+    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] label,
+    section[data-testid="stSidebar"] [data-testid="stMetricLabel"] span {
+        color: #94A3B8 !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stMetricValue"] div,
+    section[data-testid="stSidebar"] [data-testid="stMetricValue"] span,
+    section[data-testid="stSidebar"] [data-testid="stMetricValue"] {
+        color: #E5E7EB !important;
+        font-weight: 600 !important;
+    }
+
+    /* Highlight Loaded Model in Sidebar */
+    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div[data-testid="element-container"]:nth-of-type(2) [data-testid="stMetricValue"] div,
+    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] > div:nth-child(2) [data-testid="stMetricValue"] div {
+        color: #2DD4BF !important;
+    }
+
+    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"],
+    section[data-testid="stSidebar"] [data-testid="stCaptionContainer"] p {
+        color: #94A3B8 !important;
+    }
+
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3 {
+        color: #E5E7EB !important;
+        font-weight: 600 !important;
+    }
+
+    /* Sidebar buttons & collapse toggle */
+    section[data-testid="stSidebar"] button,
+    [data-testid="stSidebarCollapseButton"] button {
+        color: #94A3B8 !important;
+    }
+
+    section[data-testid="stSidebar"] svg,
+    [data-testid="stSidebarCollapseButton"] svg {
+        fill: #94A3B8 !important;
+    }
+
+    /* Headings */
+    h1, [data-testid="stHeadingWithAnchor"] h1 {
+        font-family: 'IBM Plex Sans', sans-serif !important;
+        font-size: 34px !important;
+        font-weight: 600 !important;
+        color: #E5E7EB !important;
+    }
+
+    h2, h3, [data-testid="stHeadingWithAnchor"] h2, [data-testid="stHeadingWithAnchor"] h3 {
+        font-family: 'IBM Plex Sans', sans-serif !important;
+        font-size: 22px !important;
+        font-weight: 600 !important;
+        color: #E5E7EB !important;
+    }
+
+    h4, h5, h6, [data-testid="stHeadingWithAnchor"] h4 {
+        font-family: 'IBM Plex Sans', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #E5E7EB !important;
+    }
+
+    p, span, label, div {
+        font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    /* Body and Secondary Text */
+    .stMarkdown p, .stText {
+        color: #E5E7EB;
+        font-weight: 400;
+    }
+
+    [data-testid="stCaptionContainer"], .stCaption {
+        color: #94A3B8 !important;
+        font-weight: 400 !important;
+    }
+
+    /* Form Container / Cards */
+    div[data-testid="stForm"] {
+        background-color: #151E2E !important;
+        border: 1px solid #2A3445 !important;
+        border-radius: 8px !important;
+        padding: 24px !important;
+    }
+
+    /* Widget Labels */
+    label[data-testid="stWidgetLabel"] p,
+    label[data-testid="stWidgetLabel"] {
+        color: #94A3B8 !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+    }
+
+    /* Selectboxes & Inputs */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="input"] > div,
+    input {
+        background-color: #1B2433 !important;
+        border: 1px solid #334155 !important;
+        border-radius: 6px !important;
+        color: #E5E7EB !important;
+    }
+
+    div[data-baseweb="select"]:focus-within > div,
+    div[data-baseweb="input"]:focus-within > div {
+        border-color: #0F766E !important;
+        box-shadow: 0 0 0 1px #0F766E !important;
+    }
+
+    /* Dropdown Menu */
+    div[data-baseweb="popover"],
+    div[data-baseweb="menu"],
+    ul[data-testid="stSelectboxVirtualDropdown"] {
+        background-color: #1B2433 !important;
+        border: 1px solid #2A3445 !important;
+    }
+
+    [data-baseweb="menu"] li {
+        color: #E5E7EB !important;
+        background-color: #1B2433 !important;
+    }
+
+    [data-baseweb="menu"] li:hover,
+    [data-baseweb="menu"] li[aria-selected="true"] {
+        background-color: #151E2E !important;
+        color: #2DD4BF !important;
+    }
+
+    /* Number Input Controls */
+    div[data-testid="stNumberInput"] button {
+        background-color: #1B2433 !important;
+        border: 1px solid #334155 !important;
+        color: #E5E7EB !important;
+    }
+
+    div[data-testid="stNumberInput"] button:hover {
+        background-color: #151E2E !important;
+        border-color: #0F766E !important;
+        color: #2DD4BF !important;
+    }
+
+    /* Buttons */
+    button[kind="primary"],
+    div[data-testid="stFormSubmitButton"] > button {
+        background-color: #0F766E !important;
+        color: #FFFFFF !important;
+        border: none !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+    }
+
+    button[kind="primary"]:hover,
+    div[data-testid="stFormSubmitButton"] > button:hover {
+        background-color: #0D9488 !important;
+        color: #FFFFFF !important;
+        border: none !important;
+    }
+
+    button[kind="primary"]:active,
+    div[data-testid="stFormSubmitButton"] > button:active {
+        background-color: #0F766E !important;
+    }
+
+    /* Main Area Metric Cards */
+    div[data-testid="stMain"] div[data-testid="stMetric"],
+    .stMainBlockContainer div[data-testid="stMetric"],
+    div[data-testid="stAppViewContainer"] > section:not([data-testid="stSidebar"]) div[data-testid="stMetric"] {
+        background-color: #151E2E !important;
+        border: 1px solid #2A3445 !important;
+        border-radius: 8px !important;
+        padding: 12px 16px !important;
+    }
+
+    [data-testid="stMetricLabel"] p,
+    [data-testid="stMetricLabel"] label {
+        color: #94A3B8 !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+    }
+
+    [data-testid="stMetricValue"] div,
+    [data-testid="stMetricValue"] {
+        color: #E5E7EB !important;
+        font-weight: 600 !important;
+    }
+
+    /* Progress Bar */
+    div[data-testid="stProgress"] > div > div {
+        background-color: #1B2433 !important;
+    }
+
+    /* Alerts / Recommendations */
+    div[data-testid="stAlert"] {
+        background-color: #151E2E !important;
+        border: 1px solid #2A3445 !important;
+        border-left: 3px solid #0F766E !important;
+        border-radius: 6px !important;
+        color: #E5E7EB !important;
+    }
+
+    div[data-testid="stAlert"] p {
+        color: #E5E7EB !important;
+    }
+
+    div.stAlert:has(div[data-testid="stNotificationErrorIcon"]),
+    div.stAlert:has(svg[data-testid="stIconMaterialError"]) {
+        background-color: #2A171A !important;
+        border: 1px solid #3B1C20 !important;
+        border-left: 3px solid #DC2626 !important;
+    }
+
+    div.stAlert:has(div[data-testid="stNotificationWarningIcon"]),
+    div.stAlert:has(svg[data-testid="stIconMaterialWarning"]) {
+        background-color: #261E10 !important;
+        border: 1px solid #3D3018 !important;
+        border-left: 3px solid #F59E0B !important;
+    }
+
+    div.stAlert:has(div[data-testid="stNotificationSuccessIcon"]),
+    div.stAlert:has(svg[data-testid="stIconMaterialCheck"]) {
+        background-color: #0F241A !important;
+        border: 1px solid #1A3D2C !important;
+        border-left: 3px solid #15803D !important;
+    }
+
+    /* Tabs */
+    div[data-testid="stTabs"] button[data-baseweb="tab"] {
+        color: #94A3B8 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
+        font-weight: 500 !important;
+    }
+
+    div[data-testid="stTabs"] button[data-baseweb="tab"][aria-selected="true"] {
+        color: #2DD4BF !important;
+        font-weight: 600 !important;
+    }
+
+    div[data-testid="stTabs"] div[data-baseweb="tab-highlight"] {
+        background-color: #0F766E !important;
+    }
+
+    div[data-testid="stTabs"] div[data-baseweb="tab-border"] {
+        background-color: #2A3445 !important;
+    }
+
+    /* Horizontal Rule */
+    hr {
+        border-color: #2A3445 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 @st.cache_resource
 def load_production_artifacts():
@@ -86,19 +386,19 @@ def classify_risk(probability, threshold):
         return (
             "High Risk",
             "Immediate retention outreach recommended.",
-            "#dc2626",
+            "#DC2626",
         )
     elif probability >= 0.35:
         return (
             "Moderate Risk",
             "Monitor customer engagement and consider targeted retention strategies.",
-            "#f59e0b",
+            "#F59E0B",
         )
     else:
         return (
             "Low Risk",
             "Customer is likely to stay.",
-            "#16a34a",
+            "#15803D",
         )
 
 
@@ -256,6 +556,9 @@ if submitted:
         div[data-testid="stProgress"] > div > div > div > div {{
             background-color: {progress_color} !important;
         }}
+        div[data-testid="column"]:nth-of-type(2) div[data-testid="stMetricValue"] > div {{
+            color: {progress_color} !important;
+        }}
         </style>
         """,
         unsafe_allow_html=True,
@@ -340,7 +643,7 @@ with tab2:
 st.markdown("---")
 st.markdown(
     """
-    <div style="text-align:center; color:gray; font-size:14px;">
+    <div style="text-align:center; color:#94A3B8; font-size:14px; font-family: 'IBM Plex Sans', sans-serif;">
     © 2026 Jayed Ansari<br>
     Built with <b>Python</b>, <b>LightGBM</b>, <b>Optuna</b>,
 <b>SHAP</b>, <b>Scikit-learn</b>, and <b>Streamlit</b>.
